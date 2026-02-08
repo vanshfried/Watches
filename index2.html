@@ -204,6 +204,126 @@
                 font-size: 40px;
             }
         }
+
+        /* MOBILE VIEW */
+        @media (max-width: 600px) {
+
+            /* NAVBAR */
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav h1 {
+                font-size: 22px;
+            }
+
+            nav div {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 13px;
+            }
+
+            /* HERO */
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
+            }
+
+            .hero-box {
+                width: 95%;
+                gap: 30px;
+            }
+
+            .hero-text h2 {
+                font-size: 32px;
+                line-height: 1.2;
+            }
+
+            .hero-text p {
+                font-size: 15px;
+            }
+
+            .hero-text button {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .hero-box img {
+                max-height: 280px;
+            }
+
+            /* SECTIONS */
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 26px;
+                margin-bottom: 40px;
+            }
+
+            /* COLLECTIONS */
+            .collections {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .collection-card img {
+                height: 200px;
+            }
+
+            /* PRODUCTS */
+            .products {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-card img {
+                height: 220px;
+            }
+
+            .product-card button {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            /* WHY US */
+            .why {
+                grid-template-columns: 1fr;
+            }
+
+            .why div {
+                border-right: none;
+                border-bottom: 1px solid #222;
+                padding: 30px 20px;
+                font-size: 15px;
+            }
+
+            .why div:last-child {
+                border-bottom: none;
+            }
+
+            /* FOOTER */
+            footer {
+                font-size: 13px;
+                padding: 20px;
+            }
+
+            footer a {
+                display: block;
+                margin-top: 10px;
+                color: #d4af37;
+                text-decoration: none;
+            }
+        }
     </style>
 </head>
 
