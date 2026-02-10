@@ -1,11 +1,13 @@
-
-import HomePage from "./pages/user/Homepage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddProduct from "./Pages/Admin/AddProduct";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/add-product" element={<AddProduct />} />
+      </Routes>
+    </Router>
   );
 }
 
