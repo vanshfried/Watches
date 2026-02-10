@@ -1,0 +1,123 @@
+/* Page background */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f4f7fb, #e9eef5);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont;
+}
+
+/* Card */
+.card {
+  width: 360px;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+.heading {
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.subheading {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Error */
+.error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Input field */
+.field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.field input {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  outline: none;
+  background: transparent;
+}
+
+.field input:focus {
+  border-color: #6366f1;
+}
+
+/* Floating label */
+.field label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 0.85rem;
+  pointer-events: none;
+  transition: 0.2s ease;
+  background: white;
+  padding: 0 4px;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: -6px;
+  font-size: 0.7rem;
+  color: #6366f1;
+}
+
+/* Show password */
+.toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: #6366f1;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Button */
+.button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: #4f46e5;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
