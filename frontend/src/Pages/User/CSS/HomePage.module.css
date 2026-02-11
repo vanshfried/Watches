@@ -10,7 +10,7 @@
   height: 70vh;
   background:
     linear-gradient(to right, #000000cc, #00000088),
-    url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49")
+    url("/images/image-01.jpg")
       center/cover no-repeat;
   display: flex;
   align-items: center;
