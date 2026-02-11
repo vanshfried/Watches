@@ -29,35 +29,37 @@ const HomePage = () => {
       <section className={styles.hero}>
         <div className={styles.overlay}></div>
 
-        <div className={styles.heroContent}>
-          <span className={styles.tagline}>Premium Timepieces</span>
+        <div className={styles.heroShell}>
+          <div className={styles.heroContent}>
+            <span className={styles.tagline}>Premium Timepieces</span>
 
-          <h1>
-            Redefining <span>Luxury</span> & Precision
-          </h1>
+            <h1 className={styles.heroTitle}>
+              Redefining <span>Luxury</span> & Precision
+            </h1>
 
-          <p>
-            Discover handcrafted watches built with timeless elegance,
-            exceptional materials, and unmatched craftsmanship.
-          </p>
+            <p className={styles.heroSubtitle}>
+              Discover handcrafted watches built with timeless elegance,
+              exceptional materials, and unmatched craftsmanship.
+            </p>
 
-          <div className={styles.heroButtons}>
-            <button className={styles.primaryBtn}>Explore Collection</button>
-            <button className={styles.secondaryBtn}>View New Arrivals</button>
-          </div>
-
-          <div className={styles.stats}>
-            <div>
-              <h3>500+</h3>
-              <p>Luxury Models</p>
+            <div className={styles.heroButtons}>
+              <button className={styles.primaryBtn}>Explore Collection</button>
+              <button className={styles.secondaryBtn}>View New Arrivals</button>
             </div>
-            <div>
-              <h3>10k+</h3>
-              <p>Happy Clients</p>
-            </div>
-            <div>
-              <h3>25+</h3>
-              <p>Global Brands</p>
+
+            <div className={styles.stats}>
+              <div>
+                <h3>500+</h3>
+                <p>Luxury Models</p>
+              </div>
+              <div>
+                <h3>10k+</h3>
+                <p>Happy Clients</p>
+              </div>
+              <div>
+                <h3>25+</h3>
+                <p>Global Brands</p>
+              </div>
             </div>
           </div>
         </div>

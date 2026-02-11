@@ -9,7 +9,7 @@
 /* ================= HERO SECTION ================= */
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 84vh;
   overflow: hidden;
   /* Background image from public folder */
   background:
@@ -27,9 +27,16 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
+  padding: 72px 20px 56px;
+}
+
+.heroShell {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .overlay {
@@ -44,40 +51,52 @@
 }
 
 .heroContent {
-  position: relative;
-  max-width: 900px;
-  z-index: 2;
+  width: min(700px, 100%);
+  text-align: left;
+  padding: 36px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.68),
+    rgba(0, 0, 0, 0.45) 65%,
+    rgba(0, 0, 0, 0.2)
+  );
+  backdrop-filter: blur(2px);
 }
 
 .tagline {
   color: #d4af37;
-  letter-spacing: 2px;
-  font-size: 14px;
+  letter-spacing: 2.5px;
+  font-size: 13px;
   text-transform: uppercase;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin: 20px 0;
+.heroTitle {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin: 14px 0 16px;
   font-weight: 700;
 }
 
-.hero h1 span {
+.heroTitle span {
   color: #d4af37;
 }
 
-.hero p {
+.heroSubtitle {
   color: #cfcfcf;
-  max-width: 600px;
-  margin: 0 auto 30px;
+  max-width: 58ch;
+  margin: 0 0 24px;
+  font-size: 1.03rem;
+  line-height: 1.55;
 }
 
 /* ================= HERO BUTTONS ================= */
 .heroButtons {
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 40px;
+  gap: 14px;
+  justify-content: flex-start;
+  margin-bottom: 30px;
 }
 
 .primaryBtn {
@@ -114,13 +133,14 @@
 /* ================= STATS ================= */
 .stats {
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  justify-content: flex-start;
+  gap: 32px;
 }
 
 .stats h3 {
   color: #d4af37;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  margin-bottom: 4px;
 }
 
 .stats p {
@@ -130,7 +150,7 @@
 
 /* ================= BRAND SECTION ================= */
 .brandSection {
-  padding: 80px 20px;
+  padding: 64px 20px;
   text-align: center;
   background: #111;
 }
@@ -148,7 +168,7 @@
 
 /* ================= PRODUCTS SECTION ================= */
 .productsSection {
-  padding: 120px 20px;
+  padding: 88px 20px;
   position: relative;
   overflow: hidden;
 
@@ -184,7 +204,7 @@
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 .sectionHeader::after {
   content: "";
@@ -337,7 +357,7 @@
 /* ================= CTA SECTION ================= */
 .ctaSection {
   background: linear-gradient(45deg, #000, #1a1a1a);
-  padding: 100px 20px;
+  padding: 76px 20px;
   text-align: center;
 }
 
@@ -353,16 +373,61 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .hero h1 {
+  .hero {
+    min-height: 92vh;
+    padding: 56px 16px 40px;
+  }
+
+  .heroShell {
+    justify-content: center;
+  }
+
+  .heroContent {
+    text-align: center;
+    width: min(640px, 100%);
+    padding: 28px 22px;
+  }
+
+  .heroTitle {
     font-size: 2.2rem;
+  }
+
+  .heroSubtitle {
+    margin: 0 auto 22px;
   }
 
   .stats {
     flex-direction: column;
+    align-items: center;
     gap: 20px;
   }
 
   .heroButtons {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .productsSection {
+    padding: 72px 16px;
+  }
+
+  .brandSection {
+    padding: 56px 16px;
+  }
+
+  .ctaSection {
+    padding: 64px 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 80vh;
+    padding-top: 68px;
+  }
+
+  .heroContent {
+    width: min(760px, 100%);
+    padding: 42px 46px;
   }
 }
