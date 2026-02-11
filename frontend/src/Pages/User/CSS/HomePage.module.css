@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: #f8f9fa;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  background:
+    linear-gradient(to right, #000000cc, #00000088),
+    url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49")
+      center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.shopBtn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  background: #d4af37;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.shopBtn:hover {
+  background: #b8962e;
+}
+
+/* PRODUCTS */
+.productsSection {
+  padding: 4rem 8%;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+.cardBody h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.cardBody p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.viewBtn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.viewBtn:hover {
+  background: #333;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+}

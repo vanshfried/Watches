@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
-import Product from "../models/Product.js";
-import adminAuth from "../middleware/AdminAuth.js";
+import Product from "../../models/Product.js";
+import adminAuth from "../../middleware/adminAuth.js";
 
 const router = Router();
 
@@ -15,8 +15,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
-/* ---------- CREATE PRODUCT (ADMIN) ---------- */
+/* =====================================================
+   CREATE PRODUCT (ADMIN ONLY)
+===================================================== */
 router.post(
   "/",
   adminAuth,
@@ -58,7 +59,9 @@ router.post(
   },
 );
 
-/* ---------- GET ALL PRODUCTS (ADMIN) ---------- */
+/* =====================================================
+   GET ALL PRODUCTS (ADMIN DASHBOARD)
+===================================================== */
 router.get("/", adminAuth, async (req, res) => {
   try {
     const products = await Product.find().sort({ createdAt: -1 });
@@ -68,20 +71,9 @@ router.get("/", adminAuth, async (req, res) => {
   }
 });
 
-/* ---------- GET SINGLE PRODUCT (ADMIN) ---------- */
-router.get("/:id", adminAuth, async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
-
-    if (!product) return res.status(404).json({ message: "Product not found" });
-
-    res.json(product);
-  } catch (err) {
-    res.status(500).json({ message: "Invalid ID" });
-  }
-});
-
-/* ---------- UPDATE PRODUCT (ADMIN) ---------- */
+/* =====================================================
+   UPDATE PRODUCT (ADMIN ONLY)
+===================================================== */
 router.put("/:id", adminAuth, async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -102,7 +94,9 @@ router.put("/:id", adminAuth, async (req, res) => {
   }
 });
 
-/* ---------- DELETE PRODUCT (ADMIN) ---------- */
+/* =====================================================
+   DELETE PRODUCT (ADMIN ONLY)
+===================================================== */
 router.delete("/:id", adminAuth, async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);
@@ -112,7 +106,7 @@ router.delete("/:id", adminAuth, async (req, res) => {
 
     res.json({ message: "Product deleted successfully" });
   } catch (err) {
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: err.message });
   }
 });
 

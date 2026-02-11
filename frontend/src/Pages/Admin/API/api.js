@@ -5,14 +5,27 @@ const API = axios.create({
   withCredentials: true,
 });
 
+/* ==============================
+   ADMIN AUTH
+============================== */
 export const adminLogin = (data) => API.post("/admin/login", data);
 export const adminLogout = () => API.post("/admin/logout");
 
-export const createProduct = (data) => API.post("/admin/products", data);
-export const getAllProducts = () => API.get("/admin/products");
-export const getSingleProduct = (id) => API.get(`/admin/products/${id}`);
+
+/* ==============================
+   ADMIN PRODUCTS (PROTECTED)
+============================== */
+export const createProduct = (data) =>
+  API.post("/admin/products", data);
+
 export const updateProduct = (id, data) =>
   API.put(`/admin/products/${id}`, data);
-export const deleteProduct = (id) => API.delete(`/admin/products/${id}`);
+
+export const deleteProduct = (id) =>
+  API.delete(`/admin/products/${id}`);
+
+/* Optional: Admin Dashboard View */
+export const getAllProductsAdmin = () =>
+  API.get("/admin/products");
 
 export default API;

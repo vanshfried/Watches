@@ -3,8 +3,9 @@ import { connect } from "mongoose";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import cors from "cors";
-import adminRoutes from "./routes/adminRoutes.js";
-import productRoutes from "./routes/productRoutes.js";
+import adminRoutes from "./routes/Open/adminRoutes.js";
+import productRoutes from "./routes/Open/productRoutes.js";
+import adminProductRoutes from "./routes/Closed/adminProductRoutes.js";
 
 dotenv.config();
 
@@ -29,7 +30,8 @@ app.use(cookieParser());
 
 /* ---------- ROUTES ---------- */
 app.use("/admin", adminRoutes);
-app.use("/admin/products", productRoutes);
+app.use("/products", productRoutes);
+app.use("/admin/products", adminProductRoutes);
 
 /* ---------- ROOT ---------- */
 app.get("/", (req, res) => {

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { hash, compare } from "bcryptjs";
-import Admin from "../models/admin.js";
+import Admin from "../../models/admin.js";
 
 const router = Router();
 
