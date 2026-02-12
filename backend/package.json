@@ -2,7 +2,7 @@
   "name": "product-api",
   "version": "1.0.0",
   "description": "Product API with Express and MongoDB",
-  "type": "",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
