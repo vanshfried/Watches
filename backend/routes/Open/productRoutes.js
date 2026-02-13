@@ -1,3 +1,4 @@
+// Product Routes
 import { Router } from "express";
 import Product from "../../models/Product.js";
 

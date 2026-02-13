@@ -1,3 +1,4 @@
+// Admin Product Routes
 import { Router } from "express";
 import multer from "multer";
 import Product from "../../models/Product.js";

@@ -1,7 +1,8 @@
+// Admin Routes
 import { Router } from "express";
 import { hash, compare } from "bcryptjs";
 import Admin from "../../models/admin.js";
-
+import adminAuth from "../../middleware/adminAuth.js";
 const router = Router();
 
 /**
@@ -70,6 +71,10 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
   res.clearCookie("adminId");
   res.json({ message: "Logged out successfully" });
+});
+
+router.get("/check-auth", adminAuth, (req, res) => {
+  res.status(200).json({ authenticated: true });
 });
 
 export default router;
