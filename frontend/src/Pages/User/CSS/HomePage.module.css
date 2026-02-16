@@ -4,6 +4,18 @@
   color: #f5f5f5;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* ================= HERO SECTION ================= */
@@ -11,7 +23,6 @@
   position: relative;
   min-height: 84vh;
   overflow: hidden;
-  /* Background image from public folder */
   background:
     linear-gradient(
       to bottom,
@@ -53,27 +64,27 @@
 .heroContent {
   width: min(700px, 100%);
   text-align: left;
-  padding: 36px 40px;
+  padding: 40px 44px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 14px;
   background: linear-gradient(
     120deg,
-    rgba(0, 0, 0, 0.68),
-    rgba(0, 0, 0, 0.45) 65%,
-    rgba(0, 0, 0, 0.2)
+    rgba(0, 0, 0, 0.72),
+    rgba(0, 0, 0, 0.5) 65%,
+    rgba(0, 0, 0, 0.25)
   );
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
 }
 
 .tagline {
   color: #d4af37;
-  letter-spacing: 2.5px;
+  letter-spacing: 3px;
   font-size: 13px;
   text-transform: uppercase;
 }
 
 .heroTitle {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
   line-height: 1.1;
   margin: 14px 0 16px;
   font-weight: 700;
@@ -86,43 +97,43 @@
 .heroSubtitle {
   color: #cfcfcf;
   max-width: 58ch;
-  margin: 0 0 24px;
-  font-size: 1.03rem;
-  line-height: 1.55;
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* ================= HERO BUTTONS ================= */
 .heroButtons {
   display: flex;
-  gap: 14px;
-  justify-content: flex-start;
-  margin-bottom: 30px;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .primaryBtn {
   background: linear-gradient(45deg, #d4af37, #b8962e);
   color: #000;
   border: none;
-  padding: 12px 28px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border-radius: 4px;
 }
 
 .primaryBtn:hover {
-  box-shadow: 0 0 15px #d4af37;
   transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
 }
 
 .secondaryBtn {
   background: transparent;
   border: 1px solid #d4af37;
   color: #d4af37;
-  padding: 12px 28px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border-radius: 4px;
 }
 
 .secondaryBtn:hover {
@@ -133,14 +144,12 @@
 /* ================= STATS ================= */
 .stats {
   display: flex;
-  justify-content: flex-start;
-  gap: 32px;
+  gap: 40px;
 }
 
 .stats h3 {
   color: #d4af37;
-  font-size: 1.9rem;
-  margin-bottom: 4px;
+  font-size: 2rem;
 }
 
 .stats p {
@@ -148,233 +157,110 @@
   color: #bbb;
 }
 
-/* ================= BRAND SECTION ================= */
-.brandSection {
-  padding: 64px 20px;
-  text-align: center;
-  background: #111;
-}
-
-.brandContent h2 {
-  color: #d4af37;
-  margin-bottom: 20px;
-}
-
-.brandContent p {
-  max-width: 700px;
-  margin: auto;
-  color: #ccc;
-}
-
 /* ================= PRODUCTS SECTION ================= */
 .productsSection {
-  padding: 88px 20px;
+  padding: 100px 20px;
   position: relative;
-  overflow: hidden;
-
   background:
     radial-gradient(
       circle at 20% 30%,
-      rgba(212, 175, 55, 0.12),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(255, 255, 255, 0.04),
+      rgba(212, 175, 55, 0.1),
       transparent 40%
     ),
     linear-gradient(to bottom, #151515, #1f1f1f);
 }
 
-.productsSection::before {
-  content: "";
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 300px;
-  background: radial-gradient(
-    circle,
-    rgba(212, 175, 55, 0.08),
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
 .sectionHeader {
   text-align: center;
-  margin-bottom: 48px;
-}
-.sectionHeader::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 2px;
-  margin: 20px auto 0;
-  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  margin-bottom: 60px;
 }
 
 .sectionHeader span {
   color: #d4af37;
-  text-transform: uppercase;
   font-size: 14px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 .sectionHeader h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin: 15px 0;
-  color: #ffffff; /* ADD THIS */
+  font-weight: 700;
 }
 
-.sectionHeader p {
-  color: #d6d6d6;
+.sectionHeader::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  margin: 24px auto 0;
+  background: linear-gradient(to right, transparent, #d4af37, transparent);
 }
 
 /* ================= PRODUCT GRID ================= */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
 }
 
 /* ================= PRODUCT CARD ================= */
 .card {
   background: linear-gradient(145deg, #232323, #161616);
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-
-  transition: all 0.4s ease;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px) scale(1.02);
   border-color: #d4af37;
-
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.6),
-    0 0 25px rgba(212, 175, 55, 0.25);
+    0 15px 40px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(212, 175, 55, 0.3);
 }
 
 .imageWrapper {
   position: relative;
+  padding: 24px;
   background: #000;
-  padding: 20px;
+}
+
+.imageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.1),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card:hover .imageWrapper::after {
+  opacity: 1;
 }
 
 .image {
   width: 100%;
-  height: 220px;
+  height: 240px;
   object-fit: contain;
   transition: 0.4s ease;
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-.badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: #d4af37;
-  color: #000;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 3px;
-}
-
-/* ================= CARD BODY ================= */
-.cardBody {
-  padding: 20px;
-}
-
-.cardBody h3 {
-  margin-bottom: 8px;
-}
-
-.category {
-  color: #cfcfcf;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.cardBody h3 {
-  color: #ffffff;
-}
-
-.price {
-  color: #d4af37;
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-/* ================= CARD BUTTONS ================= */
-.cardButtons {
-  display: flex;
-  gap: 10px;
-}
-
-.viewBtn {
-  flex: 1;
-  background: transparent;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  padding: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border-radius: 4px;
-}
-
-.cartBtn {
-  flex: 1;
-  background: #d4af37;
-  border: none;
-  color: #000;
-  padding: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border-radius: 4px;
-}
-
-.cartBtn:hover {
-  box-shadow: 0 0 12px #d4af37;
-}
-
-/* ================= LOADING ================= */
-.loadingWrapper {
-  text-align: center;
-  padding: 40px;
-  color: #d4af37;
-}
-
-/* ================= CTA SECTION ================= */
-.ctaSection {
-  background: linear-gradient(45deg, #000, #1a1a1a);
-  padding: 76px 20px;
-  text-align: center;
-}
-
-.ctaContent h2 {
-  color: #d4af37;
-  margin-bottom: 20px;
-}
-
-.ctaContent p {
-  margin-bottom: 30px;
-  color: #ccc;
-}
-
+/* ================= PRICE ================= */
 .priceWrapper {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .oldPrice {
@@ -386,80 +272,98 @@
 .newPrice {
   color: #d4af37;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: 0.5px;
 }
 
 .discountBadge {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 16px;
+  right: 16px;
   background: linear-gradient(45deg, #ff4d4d, #b30000);
   color: #fff;
-  padding: 6px 10px;
+  padding: 6px 12px;
   font-size: 11px;
   font-weight: 600;
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+}
+
+/* ================= CARD BODY ================= */
+.cardBody {
+  padding: 24px;
+}
+
+.cardBody h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.category {
+  color: #cfcfcf;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* ================= BUTTONS ================= */
+.cardButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.viewBtn,
+.cartBtn {
+  flex: 1;
+  padding: 9px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.viewBtn {
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+}
+
+.viewBtn:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+.cartBtn {
+  background: #d4af37;
+  border: none;
+  color: #000;
+}
+
+.cartBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+/* ================= LOADING ================= */
+.loadingWrapper {
+  text-align: center;
+  padding: 60px;
+  color: #d4af37;
 }
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .hero {
-    min-height: 92vh;
-    padding: 56px 16px 40px;
-  }
-
-  .heroShell {
-    justify-content: center;
-  }
-
   .heroContent {
     text-align: center;
-    width: min(640px, 100%);
-    padding: 28px 22px;
-  }
-
-  .heroTitle {
-    font-size: 2.2rem;
-  }
-
-  .heroSubtitle {
-    margin: 0 auto 22px;
+    padding: 30px 24px;
   }
 
   .stats {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 
-  .heroButtons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .productsSection {
-    padding: 72px 16px;
-  }
-
-  .brandSection {
-    padding: 56px 16px;
-  }
-
-  .ctaSection {
-    padding: 64px 16px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .hero {
-    min-height: 80vh;
-    padding-top: 68px;
-  }
-
-  .heroContent {
-    width: min(760px, 100%);
-    padding: 42px 46px;
+  .grid {
+    gap: 35px;
   }
 }
