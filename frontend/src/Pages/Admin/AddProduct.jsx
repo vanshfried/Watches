@@ -8,9 +8,11 @@ const categories = ["luxury", "sports", "casual", "smart", "vintage"];
 
 const AddProduct = () => {
   const [name, setName] = useState("");
-  const [mainImage, setMainImage] = useState(null); // File
-  const [images, setImages] = useState([]); // File[]
+  const [mainImage, setMainImage] = useState(null);
+  const [images, setImages] = useState([]);
   const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [discountedPrice, setDiscountedPrice] = useState("");
   const [loading, setLoading] = useState(false);
 
   const editor = useEditor({
@@ -39,11 +41,27 @@ const AddProduct = () => {
       return alert("Main image is required");
     }
 
+    if (!price || Number(price) <= 0) {
+      return alert("Valid price is required");
+    }
+
+    if (
+      discountedPrice &&
+      Number(discountedPrice) >= Number(price)
+    ) {
+      return alert("Discounted price must be less than price");
+    }
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category", category);
     formData.append("description", editor.getHTML());
+    formData.append("price", price);
     formData.append("mainImage", mainImage);
+
+    if (discountedPrice) {
+      formData.append("discountedPrice", discountedPrice);
+    }
 
     images.forEach((img) => {
       formData.append("images", img);
@@ -52,12 +70,16 @@ const AddProduct = () => {
     try {
       setLoading(true);
       await createProduct(formData);
+
       alert("Product added successfully");
 
+      // Reset form
       setName("");
       setMainImage(null);
       setImages([]);
       setCategory("");
+      setPrice("");
+      setDiscountedPrice("");
       editor.commands.setContent("");
     } catch (err) {
       alert(err.response?.data?.message || "Something went wrong");
@@ -79,6 +101,29 @@ const AddProduct = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+          />
+        </div>
+
+        {/* Price */}
+        <div className={styles.field}>
+          <label>Price</label>
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            min="0"
+            required
+          />
+        </div>
+
+        {/* Discounted Price */}
+        <div className={styles.field}>
+          <label>Discounted Price (Optional)</label>
+          <input
+            type="number"
+            value={discountedPrice}
+            onChange={(e) => setDiscountedPrice(e.target.value)}
+            min="0"
           />
         </div>
 
@@ -140,7 +185,9 @@ const AddProduct = () => {
             </button>
             <button
               type="button"
-              onClick={() => editor.chain().focus().toggleBulletList().run()}
+              onClick={() =>
+                editor.chain().focus().toggleBulletList().run()
+              }
             >
               Bullet
             </button>
@@ -151,7 +198,11 @@ const AddProduct = () => {
           </div>
         </div>
 
-        <button className={styles.submitBtn} type="submit" disabled={loading}>
+        <button
+          className={styles.submitBtn}
+          type="submit"
+          disabled={loading}
+        >
           {loading ? "Adding..." : "Add Product"}
         </button>
       </form>

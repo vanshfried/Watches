@@ -1,5 +1,6 @@
 // Product Routes
 import { Router } from "express";
+import mongoose from "mongoose";
 import Product from "../../models/Product.js";
 
 const router = Router();
@@ -9,10 +10,20 @@ const router = Router();
 ===================================================== */
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
-    res.json(products);
+    const products = await Product.find()
+      .sort({ createdAt: -1 })
+      .lean({ virtuals: true }); // include virtuals
+
+    res.status(200).json({
+      success: true,
+      count: products.length,
+      data: products,
+    });
   } catch (err) {
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching products",
+    });
   }
 });
 
@@ -21,13 +32,34 @@ router.get("/", async (req, res) => {
 ===================================================== */
 router.get("/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const { id } = req.params;
 
-    if (!product) return res.status(404).json({ message: "Product not found" });
+    // ✅ Validate ObjectId first
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product ID",
+      });
+    }
 
-    res.json(product);
+    const product = await Product.findById(id).lean({ virtuals: true });
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: product,
+    });
   } catch (err) {
-    res.status(500).json({ message: "Invalid ID" });
+    res.status(500).json({
+      success: false,
+      message: "Server error while fetching product",
+    });
   }
 });
 

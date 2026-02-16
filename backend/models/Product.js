@@ -9,12 +9,12 @@ const productSchema = new Schema(
     },
 
     mainImage: {
-      type: String, // URL or file path
+      type: String,
       required: true,
     },
 
     images: {
-      type: [String], // array of image URLs
+      type: [String],
       validate: {
         validator: function (arr) {
           return arr.length <= 5;
@@ -32,18 +32,47 @@ const productSchema = new Schema(
     category: {
       type: String,
       required: true,
-      enum: [
-        "luxury",
-        "sports",
-        "casual",
-        "smart",
-        "vintage",
-      ], // you can change these anytime
+      enum: ["luxury", "sports", "casual", "smart", "vintage"],
+    },
+
+    // ✅ Main Price (Required)
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+
+    // ✅ Discounted Price (Optional)
+    discountedPrice: {
+      type: Number,
+      min: 0,
+      validate: {
+        validator: function (value) {
+          // Allow empty
+          if (!value) return true;
+
+          // Discounted price must be less than original price
+          return value < this.price;
+        },
+        message: "Discounted price must be less than original price",
+      },
     },
   },
   {
     timestamps: true,
-  }
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
 );
+
+// ✅ Virtual: Final price to show customer
+productSchema.virtual("finalPrice").get(function () {
+  return this.discountedPrice || this.price;
+});
+
+// ✅ Virtual: Check if product is discounted
+productSchema.virtual("isDiscounted").get(function () {
+  return !!this.discountedPrice;
+});
 
 export default model("Product", productSchema);

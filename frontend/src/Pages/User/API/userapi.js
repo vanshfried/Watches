@@ -6,6 +6,7 @@ const API = axios.create({
   baseURL: import.meta.env.VITE_BACKEND_API_URL,
   withCredentials: true,
 });
+export const BASE_URL = import.meta.env.VITE_BACKEND_API_URL;
 
 /* ==============================
    PUBLIC PRODUCTS
