@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "../CSS/Header.module.css";
 import logo from "../../../assets/logomain.png";
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +15,10 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -32,9 +37,9 @@ const Header = () => {
             >
               Home
             </Link>
-            <Link to="/">Collection</Link>
-            <Link to="/">About</Link>
-            <Link to="/">Contact</Link>
+            <Link to="/collection">Collection</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
 
           <div className={styles.right}>
@@ -50,6 +55,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+
         <div className={styles.goldLine}></div>
       </header>
 
@@ -63,18 +69,10 @@ const Header = () => {
         </div>
 
         <div className={styles.mobileLinks}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Collection
-          </Link>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            Contact
-          </Link>
+          <Link to="/">Home</Link>
+          <Link to="/collection">Collection</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
 
           <button className={styles.mobileCart}>Cart</button>
         </div>
