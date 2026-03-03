@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "../CSS/Header.module.css";
-
+import logo from "../../../assets/logomain.png";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +20,9 @@ const Header = () => {
       <header className={`${styles.header} ${scrolled ? styles.shrink : ""}`}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
-            TIME<span>CRAFT</span>
+            <img src={logo} alt="TimeCraft Logo" className={styles.logoImg} />
+            <span className={styles.time}>TIME</span>
+            <span className={styles.craft}>CRAFT</span>
           </Link>
 
           <nav className={styles.nav}>

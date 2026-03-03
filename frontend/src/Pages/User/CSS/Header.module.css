@@ -30,24 +30,50 @@
   justify-content: space-between;
 }
 
+.shrink .container {
+  padding: 18px 50px;
+}
+
+.shrink .logoImg {
+  width: 36px;
+  height: 36px;
+}
+
+.shrink .logo {
+  font-size: 22px;
+}
+
 /* ================= LOGO ================= */
 
 .logo {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* tighter = more luxury */
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 4px;
   text-decoration: none;
-  background: linear-gradient(90deg, #ffffff, #d4af37);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
+.time {
+  color: #ffffff;
+}
+
+.craft {
+  color: #d4af37;
+}
+
+.logoImg {
+  width: 42px; /* smaller = more premium */
+  height: 42px;
+  object-fit: contain;
+  display: block;
+}
 /* ================= NAV ================= */
 
 .nav {
   display: flex;
-  gap: 50px;
+  gap: 36px;
 }
 
 .nav a {
