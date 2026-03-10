@@ -33,7 +33,7 @@ function AdminHeader() {
       </div>
 
       <nav className={`${styles.nav} ${menuOpen ? styles.active : ""}`}>
-        <Link to="/admin/products" onClick={() => setMenuOpen(false)}>
+        <Link to="/admin/manage-products" onClick={() => setMenuOpen(false)}>
           All Products
         </Link>
 

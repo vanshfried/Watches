@@ -1,0 +1,11 @@
+.userLayout {
+  background-color: #0d0d0d;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}

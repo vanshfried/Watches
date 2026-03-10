@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { createProduct } from "./API/api.js";
-import styles from "./CSS/AddProduct.module.css";
+import { createProduct } from "../API/api";
+import styles from "../CSS/AddProduct.module.css";
 
 const categories = ["luxury", "sports", "casual", "smart", "vintage"];
 

@@ -1,0 +1,43 @@
+.container {
+  padding: 40px;
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.editBtn {
+  background: #3498db;
+  color: white;
+}
+
+.deleteBtn {
+  background: #e74c3c;
+  color: white;
+}

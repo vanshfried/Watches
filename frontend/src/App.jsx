@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AddProduct from "./Pages/Admin/AddProduct";
-import AdminLogin from "./Pages/Admin/AdminLogin";
+import AddProduct from "./Pages/Admin/pages/AddProduct";
+import AdminLogin from "./Pages/Admin/pages/AdminLogin";
 import ProtectedAdminRoute from "./Pages/Admin/Components/AdminProtectedRoute";
-import AdminDashboard from "./Pages/Admin/AdminDashboard";
-import AdminLayout from "./Pages/Admin/AdminLayout";
+import AdminDashboard from "./Pages/Admin/pages/AdminDashboard";
+import AdminLayout from "./Pages/Admin/pages/AdminLayout";
+import ManageProducts from "./Pages/Admin/pages/ManageProducts";
 // User Pages
 import UserLayout from "./Pages/User/UserLayout";
 import HomePage from "./Pages/User/HomePage";
@@ -25,6 +26,7 @@ function App() {
           <Route element={<AdminLayout />}>
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/add-product" element={<AddProduct />} />
+            <Route path="/admin/manage-products" element={<ManageProducts />} />
           </Route>
         </Route>
       </Routes>

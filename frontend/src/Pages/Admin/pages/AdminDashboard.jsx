@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./CSS/AdminDashboard.module.css";
+import styles from "../CSS/AdminDashboard.module.css";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Dashboard() {
           <h3>Manage Products</h3>
           <p>View, edit or delete existing products.</p>
           <button
-            onClick={() => navigate("/admin/products")}
+            onClick={() => navigate("/admin/manage-products")}
             className={styles.button}
           >
             View Products
