@@ -5,6 +5,7 @@ import ProtectedAdminRoute from "./Pages/Admin/Components/AdminProtectedRoute";
 import AdminDashboard from "./Pages/Admin/pages/AdminDashboard";
 import AdminLayout from "./Pages/Admin/pages/AdminLayout";
 import ManageProducts from "./Pages/Admin/pages/ManageProducts";
+import EditProduct from "./Pages/Admin/pages/EditProduct";
 // User Pages
 import UserLayout from "./Pages/User/UserLayout";
 import HomePage from "./Pages/User/HomePage";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/add-product" element={<AddProduct />} />
             <Route path="/admin/manage-products" element={<ManageProducts />} />
+            <Route path="/admin/edit-product/:id" element={<EditProduct />} />
           </Route>
         </Route>
       </Routes>
