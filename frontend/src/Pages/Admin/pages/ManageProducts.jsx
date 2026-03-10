@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  getAllProductsAdmin,
-  deleteProduct,
-} from "../API/api";
+import { getAllProductsAdmin, deleteProduct } from "../API/api";
 import styles from "../CSS/ManageProducts.module.css";
 
 const ManageProducts = () => {
@@ -13,7 +10,7 @@ const ManageProducts = () => {
     try {
       const res = await getAllProductsAdmin();
       setProducts(res.data.data);
-    } catch (err) {
+    } catch {
       alert("Failed to load products");
     } finally {
       setLoading(false);
@@ -26,7 +23,7 @@ const ManageProducts = () => {
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this product?"
+      "Are you sure you want to delete this product?",
     );
 
     if (!confirmDelete) return;
@@ -34,12 +31,10 @@ const ManageProducts = () => {
     try {
       await deleteProduct(id);
 
-      setProducts((prev) =>
-        prev.filter((p) => p._id !== id)
-      );
+      setProducts((prev) => prev.filter((p) => p._id !== id));
 
       alert("Product deleted successfully");
-    } catch (err) {
+    } catch {
       alert("Delete failed");
     }
   };
@@ -79,23 +74,15 @@ const ManageProducts = () => {
               <td>₹{product.price}</td>
 
               <td>
-                {product.discountedPrice
-                  ? `₹${product.discountedPrice}`
-                  : "-"}
+                {product.discountedPrice ? `₹${product.discountedPrice}` : "-"}
               </td>
 
               <td className={styles.actions}>
-                <button
-                  className={styles.editBtn}
-                >
-                  Edit
-                </button>
+                <button className={styles.editBtn}>Edit</button>
 
                 <button
                   className={styles.deleteBtn}
-                  onClick={() =>
-                    handleDelete(product._id)
-                  }
+                  onClick={() => handleDelete(product._id)}
                 >
                   Delete
                 </button>
