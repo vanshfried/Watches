@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import API, { updateProduct } from "../API/api";
-import styles from "../CSS/AddProduct.module.css";
+import styles from "../CSS/EditProduct.module.css";
 
 const categories = ["luxury", "sports", "casual", "smart", "vintage"];
 
